@@ -317,8 +317,8 @@ class Xunit(Plugin):
              'taken': taken,
              'type': type,
              'errtype': self._quoteattr(nice_classname(err[0])),
-             'message': self._quoteattr(exc_message(err)),
-             'tb': escape_cdata(tb),
+             'message': self._quoteattr(exc_message(err)).encode(self.encoding),
+             'tb': escape_cdata(tb).encode(self.encoding),
              'systemout': self._getCapturedStdout(),
              'systemerr': self._getCapturedStderr(),
              })
@@ -339,8 +339,8 @@ class Xunit(Plugin):
              'name': self._quoteattr(id_split(id)[-1]),
              'taken': taken,
              'errtype': self._quoteattr(nice_classname(err[0])),
-             'message': self._quoteattr(exc_message(err)),
-             'tb': escape_cdata(tb),
+             'message': self._quoteattr(exc_message(err)).encode(self.encoding),
+             'tb': escape_cdata(tb).encode(self.encoding),
              'systemout': self._getCapturedStdout(),
              'systemerr': self._getCapturedStderr(),
              })
